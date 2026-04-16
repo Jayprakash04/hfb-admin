@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import Sidebar from "../../components/Sidebar";
-import TopBar from "../../components/TopBar";
+// Sidebar and TopBar are provided by layout
 import { brokerService, Broker } from "../../services/api";
 
 export default function BrokerDetailPage() {
@@ -44,11 +43,8 @@ export default function BrokerDetailPage() {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
-      <Sidebar />
-      <div className="flex flex-col flex-1 ml-[220px] min-w-0">
-        <TopBar />
-        <div className="px-6 py-6 flex-1">
+    <div className="flex flex-col flex-1 ml-[220px] min-w-0">
+      <div className="px-6 py-6 flex-1">
 
           {/* Top bar */}
           <div className="flex items-center justify-between mb-6">
@@ -121,7 +117,7 @@ export default function BrokerDetailPage() {
                     <Row label="Name" value={broker.name} />
                     <Row label="Slug" value={broker.slug} mono />
                     <Row label="Short Description" value={broker.shortDescription} />
-                    <Row label="Full Description" value={(broker as unknown as Record<string, unknown>).fullDescription as string} multiline />
+                    <Row label="Full Description" value={(broker as any).fullDescription as string} multiline />
                     {broker.logo && (
                       <div className="flex gap-3 py-2 border-b border-gray-50">
                         <span className="text-xs text-gray-400 w-36 shrink-0">Logo</span>
@@ -138,12 +134,12 @@ export default function BrokerDetailPage() {
                       <Row label="Spread From" value={broker.tradingConditions.spreadFrom != null ? `${broker.tradingConditions.spreadFrom} pips` : undefined} />
                       <Row label="Commission/Lot" value={broker.tradingConditions.commissionPerLot != null ? `$${broker.tradingConditions.commissionPerLot}` : undefined} />
                       <TagRow label="Platforms" values={broker.tradingConditions.platforms} color="purple" />
-                      <TagRow label="Account Types" values={(broker.tradingConditions as unknown as Record<string, unknown>).accountTypes as string[]} color="blue" />
+                      <TagRow label="Account Types" values={(broker.tradingConditions as any).accountTypes as string[]} color="blue" />
                       <TagRow label="Base Currencies" values={broker.tradingConditions.baseCurrencies} color="gray" />
-                      <TagRow label="Instruments" values={(broker.tradingConditions as unknown as Record<string, unknown>).instruments as string[]} color="gray" />
+                      <TagRow label="Instruments" values={(broker.tradingConditions as any).instruments as string[]} color="gray" />
                       <div className="flex flex-wrap gap-4 pt-2">
-                        <BoolBadge label="Islamic Account" value={(broker.tradingConditions as unknown as Record<string, unknown>).hasIslamicAccount as boolean} />
-                        <BoolBadge label="Demo Account" value={(broker.tradingConditions as unknown as Record<string, unknown>).hasDemoAccount as boolean} />
+                        <BoolBadge label="Islamic Account" value={(broker.tradingConditions as any).hasIslamicAccount as boolean} />
+                        <BoolBadge label="Demo Account" value={(broker.tradingConditions as any).hasDemoAccount as boolean} />
                       </div>
                     </Card>
                   )}
@@ -177,10 +173,10 @@ export default function BrokerDetailPage() {
                   )}
 
                   {/* SEO */}
-                  {(broker as unknown as Record<string, unknown>).seo && (
+                  {(broker as any).seo && (
                     <Card title="SEO">
                       {(() => {
-                        const seo = (broker as unknown as Record<string, unknown>).seo as Record<string, unknown>;
+                        const seo = (broker as any).seo as Record<string, unknown>;
                         return (
                           <>
                             <Row label="Meta Title" value={seo.metaTitle as string} />
@@ -211,17 +207,17 @@ export default function BrokerDetailPage() {
 
                   {/* Company */}
                   <Card title="Company Info">
-                    <Row label="Founded" value={(broker as unknown as Record<string, unknown>).foundedYear as string} />
-                    <Row label="HQ Country" value={(broker as unknown as Record<string, unknown>).headquartersCountry as string} />
+                    <Row label="Founded" value={(broker as any).foundedYear as string} />
+                    <Row label="HQ Country" value={(broker as any).headquartersCountry as string} />
                     <TagRow label="Regulatory Bodies" values={broker.regulatoryBodies} color="blue" />
-                    <TagRow label="License Numbers" values={(broker as unknown as Record<string, unknown>).licenseNumbers as string[]} color="gray" />
+                    <TagRow label="License Numbers" values={(broker as any).licenseNumbers as string[]} color="gray" />
                   </Card>
 
                   {/* Contact */}
-                  {(broker as unknown as Record<string, unknown>).contact && (
+                  {(broker as any).contact && (
                     <Card title="Contact & Social">
                       {(() => {
-                        const c = (broker as unknown as Record<string, unknown>).contact as Record<string, string>;
+                        const c = (broker as any).contact as Record<string, string>;
                         return (
                           <>
                             <LinkRow label="Website" href={c.website} />
@@ -239,14 +235,14 @@ export default function BrokerDetailPage() {
 
                   {/* Affiliate */}
                   <Card title="Affiliate">
-                    <LinkRow label="Affiliate URL" href={(broker as unknown as Record<string, unknown>).affiliateUrl as string} />
-                    <Row label="CPA Value" value={(broker as unknown as Record<string, unknown>).affiliateCpaValue != null ? `$${(broker as unknown as Record<string, unknown>).affiliateCpaValue}` : undefined} />
+                    <LinkRow label="Affiliate URL" href={(broker as any).affiliateUrl as string} />
+                    <Row label="CPA Value" value={(broker as any).affiliateCpaValue != null ? `$${(broker as any).affiliateCpaValue}` : undefined} />
                   </Card>
 
                   {/* Tags */}
-                  {(broker as unknown as Record<string, unknown>).tags && (
+                  {(broker as any).tags && (
                     <Card title="Tags">
-                      <TagRow label="" values={(broker as unknown as Record<string, unknown>).tags as string[]} color="amber" />
+                      <TagRow label="" values={(broker as any).tags as string[]} color="amber" />
                     </Card>
                   )}
 
@@ -261,7 +257,6 @@ export default function BrokerDetailPage() {
           )}
         </div>
       </div>
-    </div>
   );
 }
 

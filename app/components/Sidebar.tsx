@@ -9,7 +9,7 @@ export default function Sidebar() {
   return (
     <aside className="fixed left-0 top-0 bottom-0 w-[220px] bg-white border-r border-border-light flex flex-col z-10">
       {/* Logo */}
-      <div className="px-5 py-6 border-b border-border-light">
+      <div className="px-5 py-2 border-b border-border-light">
         <div className="flex items-center gap-2">
           <span className="text-lg font-bold tracking-tight text-black">HFB</span>
           <span className="text-xs text-gray-400">|</span>
@@ -27,15 +27,15 @@ export default function Sidebar() {
 
         {/* BROKER MANAGEMENT */}
         <SidebarSection title="BROKER MANAGEMENT">
-          <SidebarLink href="/brokers" icon={<TableIcon />} label="View All Brokers" active={pathname === "/brokers"} />
-          <SidebarLink href="/brokers/new" icon={<PlusIcon />} label="+ Add New Broker" active={pathname === "/brokers/new"} />
-          <SidebarLink href="/" icon={<UploadIcon />} label="Import Data" active={false} />
+          <SidebarLink href="/brokers" icon={<TableIcon />} label=" Brokers" active={pathname === "/brokers"} />
+          {/* <SidebarLink href="/brokers/new" icon={<PlusIcon />} label="+ Add New Broker" active={pathname === "/brokers/new"} /> */}
+          {/* <SidebarLink href="/" icon={<UploadIcon />} label="Import Data" active={false} /> */}
         </SidebarSection>
 
         {/* CONTENT MANAGEMENT */}
         <SidebarSection title="CONTENT MANAGEMENT (CMS)">
-          <SidebarLink href="/articles/new" icon={<EditIcon />} label="Article/Blog Editor" active={pathname === "/articles/new"} />
-          <SidebarLink href="/articles" icon={<ListIcon />} label="View All Articles" active={pathname === "/articles"} />
+          <SidebarLink href="/articles/new" icon={<EditIcon />} label="Articles" active={pathname === "/articles/new"} />
+          {/* <SidebarLink href="/articles" icon={<ListIcon />} label="View All Articles" active={pathname === "/articles"} /> */}
         </SidebarSection>
 
         {/* DATA TABLES */}
@@ -46,24 +46,24 @@ export default function Sidebar() {
 
         {/* REVIEWS & RATINGS */}
         <SidebarSection title="REVIEWS & RATINGS">
-          <SidebarLink href="/" icon={<ListIcon />} label="Moderation Queue" active={false} />
+          {/* <SidebarLink href="/" icon={<ListIcon />} label="Moderation Queue" active={false} /> */}
           <SidebarLink href="/" icon={<ChatIcon />} label="User Reviews" active={false} />
         </SidebarSection>
 
         {/* FEATURED BROKERS */}
-        <SidebarSection title="FEATURED BROKERS">
+        {/* <SidebarSection title="FEATURED BROKERS">
           <SidebarLink href="/" icon={<StarIcon />} label="Select Homepage Featured" active={false} />
-        </SidebarSection>
+        </SidebarSection> */}
 
         {/* E-E-A-T SECTION */}
-        <SidebarSection title="E-E-A-T SECTION">
+        {/* <SidebarSection title="E-E-A-T SECTION">
           <SidebarLink href="/" icon={<PenIcon />} label="Edit Author Profiles" active={false} />
-        </SidebarSection>
+        </SidebarSection> */}
 
         {/* SETTINGS & USER ADMIN */}
         <SidebarSection title="SETTINGS & USER ADMIN">
-          <SidebarLink href="/" icon={<PersonIcon />} label="Manage Admin Users" active={false} />
-          <SidebarLink href="/" icon={<KeyIcon />} label="API Keys (for data sources)" active={false} />
+          <SidebarLink href="/" icon={<PersonIcon />} label=" Admins" active={false} />
+          {/* <SidebarLink href="/" icon={<KeyIcon />} label="API Keys (for data sources)" active={false} /> */}
           <SidebarLink href="/leads" icon={<FormIcon />} label="Lead Gen Forms" active={pathname === "/leads" || pathname.startsWith("/leads/")} />
         </SidebarSection>
       </nav>

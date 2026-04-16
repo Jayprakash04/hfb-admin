@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "./context/AuthContext";
 import { Toaster } from "react-hot-toast";
+import AppShell from "./components/AppShell";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -24,7 +25,7 @@ export default function RootLayout({
       <body className="min-h-screen font-sans">
         <AuthProvider>
           <Toaster position="top-right" />
-          {children}
+          <AppShell>{children}</AppShell>
         </AuthProvider>
       </body>
     </html>

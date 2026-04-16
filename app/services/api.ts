@@ -63,7 +63,10 @@ export interface Broker {
   shortDescription?: string;
   isActive: boolean;
   isFeatured: boolean;
+  isRegulated?: boolean;
+  logo?: string;
   ratingAverage?: number;
+  ratingCount?: number;
   reviewCount?: number;
   updatedAt: string;
   createdAt: string;

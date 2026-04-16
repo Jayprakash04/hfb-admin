@@ -1,7 +1,6 @@
 "use client";
 
-import Sidebar from "../../components/Sidebar";
-import TopBar from "../../components/TopBar";
+// Sidebar and TopBar are provided by layout
 import BrokerForm from "../../components/broker/BrokerForm";
 import { useRouter } from "next/navigation";
 
@@ -9,11 +8,8 @@ export default function NewBrokerPage() {
   const router = useRouter();
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
-      <Sidebar />
-      <div className="flex flex-col flex-1 ml-[220px] min-w-0">
-        <TopBar />
-        <div className="px-6 py-6 flex-1">
+    <div className="flex flex-col flex-1 ml-[220px] min-w-0">
+      <div className="px-6 py-6 flex-1">
           <div className="mb-6 flex items-center justify-between">
             <div>
               <h1 className="text-xl font-bold text-black">Add New Broker</h1>
@@ -34,6 +30,6 @@ export default function NewBrokerPage() {
           />
         </div>
       </div>
-    </div>
+   
   );
 }

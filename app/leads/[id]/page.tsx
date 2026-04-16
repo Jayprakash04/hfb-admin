@@ -3,8 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import Sidebar from "../../components/Sidebar";
-import TopBar from "../../components/TopBar";
+// Sidebar and TopBar are provided by layout
 import { leadService, Lead } from "../../services/api";
 import { LeadStatusEnum } from "../../lib/enums";
 
@@ -115,11 +114,8 @@ export default function LeadDetailPage() {
   const user = userDisplay();
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
-      <Sidebar />
-      <div className="flex flex-col flex-1 ml-55 min-w-0">
-        <TopBar />
-        <div className="px-6 py-6 flex-1">
+    <div className="flex flex-col flex-1 ml-55 min-w-0">
+      <div className="px-6 py-6 flex-1">
 
           {/* Header */}
           <div className="flex items-start justify-between gap-4 mb-6">
@@ -321,6 +317,6 @@ export default function LeadDetailPage() {
           )}
         </div>
       </div>
-    </div>
+   
   );
 }

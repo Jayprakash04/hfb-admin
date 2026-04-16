@@ -2,8 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import Sidebar from "../components/Sidebar";
-import TopBar from "../components/TopBar";
+// Sidebar and TopBar are provided by layout
 import { brokerService, Broker } from "../services/api";
 
 export default function BrokersPage() {
@@ -122,12 +121,8 @@ export default function BrokersPage() {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
-      <Sidebar />
-      <div className="flex flex-col flex-1 ml-[220px] min-w-0">
-        <TopBar />
-
-        <div className="px-6 py-6 flex-1">
+    <div className="flex flex-col flex-1 ml-[220px] min-w-0">
+      <div className="px-6 py-6 flex-1">
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
             <div>
@@ -419,6 +414,6 @@ export default function BrokersPage() {
           )}
         </div>
       </div>
-    </div>
+    
   );
 }

@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import Sidebar from "../../../components/Sidebar";
-import TopBar from "../../../components/TopBar";
+// Sidebar and TopBar moved to shared layout
 import ArticleForm from "../../../components/article/ArticleForm";
 import { ArticleFormValues, defaultArticleValues } from "../../../lib/article-schema";
 import { articleService, Article } from "../../../services/api";
@@ -67,11 +66,8 @@ export default function EditArticlePage() {
   }
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
-      <Sidebar />
-      <div className="flex flex-col flex-1 ml-55 min-w-0">
-        <TopBar />
-        <div className="px-6 py-6 flex-1">
+    <div className="flex flex-col flex-1 ml-55 min-w-0">
+      <div className="px-6 py-6 flex-1">
           <div className="mb-6 flex items-center justify-between">
             <div>
               <h1 className="text-xl font-bold text-black">
@@ -109,6 +105,6 @@ export default function EditArticlePage() {
           )}
         </div>
       </div>
-    </div>
+    
   );
 }
